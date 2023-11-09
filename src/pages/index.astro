@@ -1,0 +1,302 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../utils/saludos.js";
+---
+
+<script>
+    const mensajes = {
+        básico: [
+            "¡Feliz cumpleaños! Espero que tengas un día maravilloso.",
+            "Que este nuevo año de vida te traiga mucha felicidad y éxito. ¡Feliz cumpleaños!",
+            "Deseándote un día lleno de alegría y rodeado de tus seres queridos. ¡Feliz cumpleaños!",
+            "En este día especial, te envío mis mejores deseos. ¡Feliz cumpleaños!",
+            "Que todos tus sueños se hagan realidad en este nuevo año. ¡Feliz cumpleaños!",
+            "Celebra tu cumpleaños con una gran sonrisa y mucho entusiasmo. ¡Feliz día!",
+            "Que cada momento de tu cumpleaños esté lleno de amor y felicidad. ¡Feliz cumpleaños!",
+            "Espero que este día esté lleno de sorpresas y momentos especiales. ¡Feliz cumpleaños!",
+            "¡Feliz cumpleaños! Que la vida te sonría siempre y se cumplan todos tus deseos.",
+            "Que este año sea el mejor hasta ahora. ¡Feliz cumpleaños!",
+            "Que en tu cumpleaños recibas mucho amor y cariño de todas las personas que te rodean. ¡Feliz día!",
+            "Deseándote un año lleno de nuevas experiencias y grandes oportunidades. ¡Feliz cumpleaños!",
+            "Hoy es tu día especial, disfrútalo al máximo y hazlo inolvidable. ¡Feliz cumpleaños!",
+            "Que cada vela en tu pastel de cumpleaños represente un deseo hecho realidad. ¡Feliz día!",
+            "En tu cumpleaños, quiero recordarte lo especial que eres y lo agradecido(a) que estoy por tenerte en mi vida. ¡Feliz cumpleaños!",
+            "Que la felicidad te encuentre en cada paso que des y que tus sueños se hagan realidad. ¡Feliz cumpleaños!",
+            "Celebra tu cumpleaños con alegría y gratitud por todo lo que has logrado hasta ahora. ¡Feliz día!",
+            "Hoy celebramos un año más de tu existencia. ¡Feliz cumpleaños! Disfruta de cada momento.",
+            "Que este nuevo año te traiga muchas bendiciones y oportunidades para crecer. ¡Feliz cumpleaños!",
+            "En este día especial, te envío un abrazo lleno de buenos deseos. ¡Feliz cumpleaños!",
+        ],
+        divertido: [
+            "¡Feliz cumpleaños! Espero que tu día esté lleno de risas, diversión y pastel. ¡Disfruta al máximo y no te olvides de soplar las velas!",
+            "¡Feliz cumpleaños! Que tengas un día tan increíble que te rías hasta quedarte sin aire.",
+            "¡Feliz cumpleaños! Hoy tienes permiso para comer todo el pastel que quieras, ¡sin remordimientos!",
+            "¡Feliz cumpleaños! No importa cuántos años cumplas, ¡siempre serás joven de espíritu!",
+            "¡Feliz cumpleaños! Que la fiesta sea tan salvaje que tengas que contarla como una leyenda.",
+            "¡Feliz cumpleaños! Que los regalos sean tan fantásticos como tú y las bromas tan divertidas como siempre.",
+            "¡Feliz cumpleaños! Que cada vela que soples hoy te conceda un deseo increíble.",
+            "¡Feliz cumpleaños! No importa cuántos años cumplas, mientras más viejo, ¡más fiestas y travesuras!",
+            "¡Feliz cumpleaños! Que este día sea tan alocado que hagas cosas que te avergüencen en el futuro.",
+            "¡Feliz cumpleaños! Disfruta de este día como si fueras un niño en un parque de diversiones.",
+            "¡Feliz cumpleaños! ¡Espero que no te duela tanto soplar las velas como el año pasado!",
+            "Dicen que cumplir años es como subir una montaña, ¡pero al menos puedes tomar pastel en la cima! ¡Feliz cumpleaños!",
+            "Feliz cumpleaños a alguien que está un año más cerca de los descuentos para personas mayores. ¡Aprovéchalos!",
+            "¡Felicidades en tu día! Recuerda, la edad es solo un número... un número que te hace más viejo(a). ¡Diviértete!",
+            "¡Feliz cumpleaños! No importa cuántos años cumplas, siempre serás más joven que yo. ¡Disfrútalo!",
+            "¡Feliz cumpleaños! Recuerda, cada vela en tu pastel es un recordatorio de que cada vez eres más caliente.",
+            "Envejecer es obligatorio, pero crecer es opcional. ¡Feliz cumpleaños y nunca dejes de ser joven de corazón!",
+            "¡Feliz cumpleaños! Hoy es el único día del año en el que puedes obtener más arrugas y aún así recibir elogios por ello.",
+            "Dicen que la juventud es un regalo, pero el envejecimiento bien es una obra de arte. ¡Feliz cumpleaños, artista!",
+            "¡Feliz cumpleaños! Recuerda, la edad es solo una excusa para comer más pastel. ¡Disfrútalo sin culpa!",
+            "En tu cumpleaños, te deseo más arrugas... ¡de tanto reírte! ¡Feliz día lleno de diversión!",
+            "¡Feliz cumpleaños! Que este nuevo año te traiga menos canas y más pelos en la cabeza (o al menos en la nariz).",
+            "¡Felicidades en tu día! Espero que recibas tantos regalos que necesites una carretilla para llevártelos todos.",
+            "¡Feliz cumpleaños! Hoy es el día perfecto para ser descaradamente feliz y hacer cosas ridículas sin remordimientos.",
+            "¡Feliz cumpleaños! Si la vida fuera un concurso de belleza, seguro ganarías el premio a la mejor sonrisa... ¡con todas tus arrugas!",
+            "En tu cumpleaños, recuerda que la edad es solo una actitud... pero no te preocupes, todos sabemos que eres un(a) niño(a) por dentro.",
+            "¡Feliz cumpleaños! Que este nuevo año esté lleno de aventuras, risas y momentos absurdamente divertidos.",
+            "¡Felicidades en tu día! Asegúrate de soplar todas las velas de una vez, ¡no queremos llamar a los bomberos!",
+            "¡Feliz cumpleaños! Espero que tus problemas sean tan viejos como tú y que te olvides de ellos tan rápido como olvidas dónde dejaste las llaves.",
+            "En este día especial, celebremos el hecho de que todavía recuerdas tu propia edad. ¡Feliz cumpleaños, cerebrito!",
+        ],
+        inspirador: [
+            "¡Feliz cumpleaños! Que este nuevo año de vida te traiga éxito, salud y felicidad. Recuerda que cada día es una oportunidad para alcanzar tus sueños.",
+            "¡Feliz cumpleaños! Que este sea un año lleno de metas alcanzadas y nuevos desafíos superados.",
+            "¡Feliz cumpleaños! Eres una persona extraordinaria y estoy seguro de que lograrás grandes cosas en este nuevo año de vida.",
+            "¡Feliz cumpleaños! Disfruta cada momento de tu vida y aprovecha al máximo las oportunidades que se te presenten.",
+            "¡Feliz cumpleaños! Que este año esté lleno de momentos de crecimiento, aprendizaje y superación personal.",
+            "¡Feliz cumpleaños! Eres más fuerte de lo que crees y capaz de alcanzar todo aquello que te propongas. Confía en ti mismo/a.",
+            "¡Feliz cumpleaños! Aprovecha este nuevo año para seguir persiguiendo tus sueños y no te detengas ante los obstáculos que puedan surgir.",
+            "¡Feliz cumpleaños! Recuerda que cada día es una oportunidad para hacer una diferencia en el mundo. Nunca subestimes tu capacidad de impactar positivamente a los demás.",
+            "¡Feliz cumpleaños! Celebra tus logros, aprende de tus fracasos y sigue adelante con determinación y valentía.",
+            "¡Feliz cumpleaños! Que este año esté lleno de nuevas experiencias, descubrimientos y momentos que te hagan crecer como persona.",
+        ],
+        amoroso: [
+            "¡Feliz cumpleaños, mi amor! Eres la persona más especial en mi vida y deseo que este día esté lleno de amor y momentos inolvidables. Te quiero mucho.",
+            "¡Feliz cumpleaños! Eres la luz que ilumina mi vida. Gracias por todo el amor y felicidad que me brindas. Espero que este día sea tan especial como tú.",
+            "¡Feliz cumpleaños! No hay palabras suficientes para expresar cuánto te amo. Espero que este día esté lleno de cariño, dulces sorpresas y momentos inolvidables a tu lado.",
+            "¡Feliz cumpleaños! Tener a alguien como tú a mi lado es el mejor regalo de la vida. Que este día sea tan hermoso como nuestro amor y tan dulce como tus besos.",
+            "¡Feliz cumpleaños, mi amor! Cada año a tu lado es una bendición. Deseo que este día esté lleno de sonrisas, abrazos y mucho amor. Te amo más de lo que las palabras pueden expresar.",
+            "¡Feliz cumpleaños! Eres el amor de mi vida y mi mejor compañero/a. Espero que este nuevo año esté lleno de momentos románticos y recuerdos inolvidables juntos.",
+            "¡Feliz cumpleaños! No solo celebro el día en que naciste, sino cada día que he tenido el privilegio de llamarte mi amor. Que este día y todos los siguientes estén llenos de amor y felicidad.",
+            "¡Feliz cumpleaños! Eres mi razón de sonreír y mi fuente de felicidad. Que este día esté lleno de amor y alegría para ti. Te amo más de lo que imaginas.",
+            "¡Feliz cumpleaños! Tú haces que mi mundo sea más hermoso con tu amor incondicional. Que este día y todos los días de tu vida estén llenos de amor, salud y felicidad.",
+            "¡Feliz cumpleaños, mi amor! Eres mi persona favorita en el mundo. Gracias por ser mi apoyo, mi compañero/a y mi amor eterno. Que este día sea tan especial como tú.",
+        ],
+        familiar: [
+            "¡Feliz cumpleaños! Eres una parte invaluable de nuestra familia y te deseamos un día lleno de amor, alegría y bendiciones. Que este nuevo año te brinde abundantes momentos felices.",
+            "¡Feliz cumpleaños! Eres un ser especial que ha traído mucha alegría a nuestras vidas. Esperamos que este día y todos los días futuros estén llenos de amor y prosperidad.",
+            "¡Feliz cumpleaños! En este día, celebramos el regalo maravilloso que eres para nuestra familia. Te deseamos un año lleno de éxitos, salud y felicidad. ¡Disfruta tu día al máximo!",
+            "¡Feliz cumpleaños! Eres un miembro valioso de nuestra familia y nos sentimos agradecidos por tenerte. Que este nuevo año de vida esté lleno de amor, unión familiar y momentos inolvidables.",
+            "¡Feliz cumpleaños! Eres una persona especial que ilumina nuestras vidas con tu presencia. Que este día esté lleno de risas, abrazos y momentos memorables junto a tus seres queridos.",
+            "¡Feliz cumpleaños! Te recordamos con cariño en este día tan especial. Esperamos que tu vida esté llena de amor, paz y éxito. Que todos tus deseos se hagan realidad.",
+            "¡Feliz cumpleaños! Eres parte esencial de nuestra familia y te deseamos un día mágico. Que este año te traiga muchas bendiciones y la realización de tus sueños. Te queremos mucho.",
+            "¡Feliz cumpleaños! Hoy celebramos tu existencia y la alegría que nos brindas como familia. Que este día esté lleno de sonrisas, momentos compartidos y amor infinito. ¡Felicidades!",
+            "¡Feliz cumpleaños! Eres un tesoro en nuestras vidas y deseamos que este nuevo año de vida esté lleno de éxitos, alegrías y amor. Que siempre encuentres felicidad en el camino.",
+            "¡Feliz cumpleaños! Eres un pilar en nuestra familia y te honramos en este día especial. Que el amor y la dicha te acompañen siempre. Disfruta de tu día rodeado de seres queridos.",
+        ],
+        amistad: [
+            "¡Feliz cumpleaños, amigo/a! Gracias por estar siempre ahí, compartiendo risas y aventuras. Que este nuevo año te traiga aún más momentos increíbles. ¡Celebra a lo grande!",
+            "¡Feliz cumpleaños! No puedo imaginar mi vida sin ti. Sería tan aburrida y vacía. Gracias por ser mi amigo/a y por todos los momentos maravillosos que hemos compartido. ¡Que este día sea épico!",
+            "¡Feliz cumpleaños! Eres más que un amigo/a, eres como un hermano/a para mí. Agradezco cada risa, cada conversación y cada momento de apoyo que hemos compartido. Que tengas un día increíble.",
+            "¡Feliz cumpleaños! La amistad verdadera es algo especial y tú eres el ejemplo perfecto de ello. Gracias por estar siempre ahí, incluso en los momentos más difíciles. Te deseo lo mejor en tu día.",
+            "¡Feliz cumpleaños, mi fiel compañero/a de aventuras! No importa qué tan lejos estemos, nuestra amistad siempre será fuerte. Que este día esté lleno de risas, abrazos y buenos recuerdos.",
+            "¡Feliz cumpleaños! Gracias por ser ese amigo/a en el que puedo confiar en cualquier momento. Tu amistad es un tesoro que valoro cada día. Espero que tu día esté lleno de alegría y amor.",
+            "¡Feliz cumpleaños! Los amigos como tú hacen que la vida sea más hermosa. Gracias por estar a mi lado en los buenos y malos momentos. Que este día y todos los días estén llenos de risas y felicidad.",
+            "¡Feliz cumpleaños! Celebrar tu cumpleaños significa celebrar nuestra amistad. Agradezco cada momento compartido y espero que este nuevo año te traiga todo lo que deseas. ¡Felicidades, amigo/a!",
+            "¡Feliz cumpleaños! Eres esa persona especial que ilumina mi vida con tu amistad. Gracias por ser tú y por todos los recuerdos inolvidables que hemos creado juntos. Que este día sea tan especial como tú.",
+            "¡Feliz cumpleaños! Aunque las palabras no pueden expresar completamente lo mucho que valoro nuestra amistad, quiero que sepas que siempre estaré aquí para ti. Que tengas un cumpleaños increíble, amigo/a.",
+        ],
+        profesional: [
+            "¡Feliz cumpleaños! En este día especial, queremos reconocer tus logros y agradecer tu dedicación y profesionalismo. Que este nuevo año te brinde éxito y satisfacciones en tu carrera.",
+
+            "¡Feliz cumpleaños! Celebremos tu día y tus valiosas contribuciones al ámbito profesional. Que este nuevo año esté lleno de metas alcanzadas y oportunidades de crecimiento.",
+
+            "¡Feliz cumpleaños! Admiramos tu compromiso y excelencia en tu trabajo. Que este día y todos los días venideros te brinden satisfacción personal y profesional.",
+
+            "¡Feliz cumpleaños! Eres un ejemplo de profesionalismo y dedicación. Te deseamos un año lleno de éxitos, nuevos desafíos y reconocimientos bien merecidos.",
+
+            "¡Feliz cumpleaños! Tu talento y habilidades son inspiradores. Esperamos que este nuevo año esté lleno de proyectos emocionantes y oportunidades de desarrollo profesional.",
+
+            "¡Feliz cumpleaños! Queremos celebrar tus logros y el impacto positivo que has dejado en tu carrera. Que este día sea el inicio de un año lleno de éxitos y satisfacciones.",
+
+            "¡Feliz cumpleaños! Valoramos tu dedicación y pasión por tu trabajo. Que este nuevo año esté lleno de retos emocionantes y recompensas profesionales. ¡Felicidades!",
+
+            "¡Feliz cumpleaños! Tu profesionalismo y compromiso son dignos de admirar. Deseamos que este año sea próspero en tu carrera y que sigas alcanzando tus metas más ambiciosas.",
+
+            "¡Feliz cumpleaños! Celebremos tu día y todas las contribuciones valiosas que has hecho en tu campo profesional. Que este nuevo año te brinde nuevas oportunidades y satisfacciones.",
+
+            "¡Feliz cumpleaños! Tu talento y dedicación son un verdadero ejemplo. Esperamos que este año te encuentres rodeado de éxito y gratificación en tu carrera profesional.",
+        ],
+    };
+
+    const tipoSaludo = document.getElementById("tipo") as HTMLSelectElement;
+    const botonGenerar = document.getElementById("boton-generar");
+    const saludo = document.getElementById("saludo");
+    const copiar = document.getElementById("copiar");
+
+    // Función para generar un saludo aleatorio
+    function generarSaludo() {
+        let tipoSeleccionado = tipoSaludo.value;
+
+        let mensajesTipo = mensajes[tipoSeleccionado];
+        let mensajeAleatorio =
+            mensajesTipo[Math.floor(Math.random() * mensajesTipo.length)];
+        saludo.textContent = mensajeAleatorio;
+    }
+
+    const copySaludo = () => {
+        navigator.clipboard.writeText(saludo.textContent);
+        copiar.innerText = "Saludo Copiado";
+        copiar.style.background = "#fff";
+        copiar.style.color = "#000123";
+        setTimeout(() => (copiar.innerText = "Copiar Saludo"), 1600);
+        setTimeout(() => (copiar.style.background = "#00BFE9"), 1600);
+        setTimeout(() => (copiar.style.color = "#fff"), 1600);
+    };
+
+    // Agrega el evento click al botón para generar el saludo
+    botonGenerar.addEventListener("click", generarSaludo);
+
+    copiar.addEventListener("click", copySaludo);
+</script>
+
+<Layout title="Welcome to Astro.">
+    <main>
+        <article>
+            <h1><span>Generador</span> Saludos de Cumpleaños</h1>
+
+            <div id="saludo">
+                Elige el Tipo de <br /> Saludo de Cumpleaños <br />🥳🥳🥳
+            </div>
+
+            <div id="tipo-saludo">
+                <label for="tipo">TIPO:</label>
+                <select id="tipo">
+                    <option value="básico">Básico</option>
+                    <option value="divertido">Divertido</option>
+                    <option value="inspirador">Inspirador</option>
+                    <option value="amoroso">Amoroso</option>
+                    <option value="amistad">Amistad</option>
+                    <option value="familiar">Familiar</option>
+                    <option value="profesional">Profesional</option>
+                </select>
+            </div>
+
+            <div class="btns">
+                <button id="boton-generar">Generar Saludo</button>
+                <button id="copiar">Copiar Saludo</button>
+            </div>
+
+            <div class="pila"><h2>by <a href="#">Pila Gonzalez</a></h2></div>
+        </article>
+    </main>
+</Layout>
+
+<style>
+    main {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-image: linear-gradient(
+            to right top,
+            #051937,
+            #0a3255,
+            #0b4d75,
+            #066a93,
+            #0089b1
+        );
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    article {
+        max-width: 1200px;
+        width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        color: #fff;
+        padding: 0 20px;
+    }
+
+    span {
+        color: #ffffff;
+        display: block;
+        font-size: 3rem;
+    }
+
+    #saludo {
+        font-size: 24px;
+        padding: 1rem 1.5rem;
+        width: 90%;
+        margin: 20px auto;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        border-radius: 5px;
+        border: 5px solid #0089b1;
+        overflow: hidden;
+    }
+
+    label {
+        font-size: 26px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        color: #fff;
+        margin-right: 20px;
+    }
+
+    select {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .btns {
+        display: flex;
+        gap: 30px;
+        margin: 20px 0;
+    }
+
+    #boton-generar,
+    #copiar {
+        padding: 1rem;
+        font-size: 18px;
+        cursor: pointer;
+        background: #0089b1;
+        color: #fff;
+        border: none;
+        width: 160px;
+        border-radius: 5px;
+    }
+
+    #copiar {
+        background: #00bfe9;
+    }
+
+    .pila {
+        color: aliceblue;
+
+    }
+
+    .pila h2 {
+        font-size: 16px;
+    }
+
+    .pila a {
+        color: rgb(203, 223, 216);
+    }
+</style>
